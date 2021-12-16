@@ -17,8 +17,13 @@ from dotenv import load_dotenv
 load_dotenv()
 
 
-def api_request(URL, METHOD, PAYLOAD=None):
+def api_request(PATH, METHOD, PAYLOAD=None):
+    """
+    Generic Function to make API Calls to Terraform Cloud
+    """
     TFCLOUD_API_TOKEN = os.getenv("tfcloud_api_token")
+    BASE_URL= "https://app.terraform.io/api/v2/"
+    URL = f"{BASE_URL}{PATH}"
     HEADERS = {
         "Content-Type": "application/vnd.api+json",
         "Authorization": "Bearer " + TFCLOUD_API_TOKEN,
@@ -33,8 +38,8 @@ def workspace_create(org_name, payload):
     """
     Function to create workspace in tfcloud in the provided organization with Intersight hyperlink
     """
-    url = f"https://app.terraform.io/api/v2/organizations/{org_name}/workspaces"
-    response = api_request(URL=url, METHOD="POST", PAYLOAD=payload)
+    path = f"organizations/{org_name}/workspaces"
+    response = api_request(URL=path, METHOD="POST", PAYLOAD=payload)
     print(f"Workspace Create Status: {response.status_code}")
 
 
@@ -43,8 +48,8 @@ def workspace_get(org_name):
     Function to list workspaces under an Organization
     """
     workspace_data = {}
-    url = f"https://app.terraform.io/api/v2/organizations/{org_name}/workspaces"
-    response = api_request(URL=url, METHOD="GET")
+    path = f"organizations/{org_name}/workspaces"
+    response = api_request(URL=path, METHOD="GET")
     response_data = response.json()
     for workspace in response_data["data"]:
         workspace_id = workspace["id"]
@@ -56,8 +61,8 @@ def workspace_variable_create(workspace_id, payload):
     """
     Function to create variables under workspaces
     """
-    url = f"https://app.terraform.io/api/v2/workspaces/{workspace_id}/vars"
-    response = api_request(URL=url, METHOD="POST", PAYLOAD=payload)
+    path = f"workspaces/{workspace_id}/vars"
+    response = api_request(URL=path, METHOD="POST", PAYLOAD=payload)
     print(f"Workspace Variable Create Status: {response.status_code}")
 
 
