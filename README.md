@@ -2,12 +2,14 @@
 Repo to test Terraform Cloud API calls
 
 main.py file will create/list below objects in Terraform Cloud using Terraform Cloud API 
-    1. Create Workspaces
-    2. List Workspace Names and ID's
-    3. Create Workspace Variables
-    4. List Workspace Variables
+
+- Create Workspaces
+- List Workspace Names and ID's
+- Create Workspace Variables
+- List Workspace Variables
     
 Define org info, workspace and variables data in api_data.json 
+
 
 #### Sample Output
 
