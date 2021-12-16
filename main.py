@@ -124,7 +124,7 @@ def main():
     """
     tfcloud_api_token = os.getenv("tfcloud_api_token")
 
-    variable_file = "tfcloud_vars.json"
+    variable_file = "api_data.json"
     with open(variable_file, "r") as file:
         data = json.load(file)
 
@@ -160,7 +160,7 @@ def main():
     # Set Variables Payload
     var_list = data["vars"]
 
-    # Create variables defined in tfcloud_vars.json file
+    # Create variables defined in api_data.json file
     create_workspace_vars(tfcloud_api_token, workspace_id, var_list)
 
 
