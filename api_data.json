@@ -1,0 +1,64 @@
+{
+    "organization": "CiscoCX_LSSE_Learn",
+    "workspace": {
+        "payload": {
+            "data": {
+                "attributes": {
+                    "name": "tfcloud_api_demo",
+                    "resource-count": 1,
+                    "terraform_version": "1.1.1",
+                    "working-directory": "",
+                    "execution-mode": "remote",
+                    "auto-apply": false,
+                    "vcs-repo": {
+                        "identifier": "sandkum5/IST-DEMO",
+                        "oauth-token-id": "",
+                        "branch": ""
+                    },
+                    "source": "tfe-api",
+                    "source-name": "Intersight",
+                    "source-url": ""
+                },
+                "type": "workspaces"
+            }
+        }
+    },
+    "vars": [
+        {
+            "key": "Name",
+            "value": "default",
+            "description": "This is a API Created org variable",
+            "category": "terraform"
+        },
+        {
+            "key": "Enabled",
+            "value": "true",
+            "description": "This is a API Created Name variable",
+            "category": "terraform"
+        },
+        {
+            "key": "NtpServers",
+            "value": "[\"1.1.1.1\", \"2.2.2.2\"]",
+            "description": "This is a API Created org variable",
+            "category": "terraform"
+        },
+        {
+            "key": "TimeZone",
+            "value": "America/Los_Angeles",
+            "description": "This is a API Created Name variable",
+            "category": "terraform"
+        },
+        {
+            "key": "org_name",
+            "value": "default",
+            "description": "This is a API Created org variable",
+            "category": "terraform"
+        },
+        {
+            "key": "Description",
+            "value": "IST DEMO NTP1 vars using github",
+            "description": "This is a API Created Name variable",
+            "category": "terraform"
+        }
+    ]
+}
