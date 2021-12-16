@@ -22,7 +22,7 @@ def api_request(PATH, METHOD, PAYLOAD=None):
     Generic Function to make API Calls to Terraform Cloud
     """
     TFCLOUD_API_TOKEN = os.getenv("tfcloud_api_token")
-    BASE_URL= "https://app.terraform.io/api/v2/"
+    BASE_URL = "https://app.terraform.io/api/v2/"
     URL = f"{BASE_URL}{PATH}"
     HEADERS = {
         "Content-Type": "application/vnd.api+json",
@@ -39,7 +39,7 @@ def workspace_create(org_name, payload):
     Function to create workspace in tfcloud in the provided organization with Intersight hyperlink
     """
     path = f"organizations/{org_name}/workspaces"
-    response = api_request(URL=path, METHOD="POST", PAYLOAD=payload)
+    response = api_request(PATH=path, METHOD="POST", PAYLOAD=payload)
     print(f"Workspace Create Status: {response.status_code}")
 
 
@@ -49,7 +49,7 @@ def workspace_get(org_name):
     """
     workspace_data = {}
     path = f"organizations/{org_name}/workspaces"
-    response = api_request(URL=path, METHOD="GET")
+    response = api_request(PATH=path, METHOD="GET")
     response_data = response.json()
     for workspace in response_data["data"]:
         workspace_id = workspace["id"]
@@ -62,7 +62,7 @@ def workspace_variable_create(workspace_id, payload):
     Function to create variables under workspaces
     """
     path = f"workspaces/{workspace_id}/vars"
-    response = api_request(URL=path, METHOD="POST", PAYLOAD=payload)
+    response = api_request(PATH=path, METHOD="POST", PAYLOAD=payload)
     print(f"Workspace Variable Create Status: {response.status_code}")
 
 
